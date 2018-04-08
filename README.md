@@ -23,7 +23,7 @@ This template benefits from features such as:
 ## Getting started
 
 1. Install node dependencies `npm install`
-2. Parse the data `npm run parse`
-3. Start the server `npm run server`
+2. Parse the data `npm run parse:data`
+3. Start the server `npm run start`
 4. Go to localhost:3000
 
