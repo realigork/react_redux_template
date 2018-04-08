@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
 import Section from '../components/section';
+
+import * as actions from '../store/actions/section';
 
 import styles from './app.css';
 
@@ -22,14 +24,37 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.data);
+    let renderSections = null;
+    if (this.props.sections > 0) {
+      const sections = [];
+      for (let i = 0, l = this.props.sections; i < l; i++) {
+        sections.push(<Section key={i} />);
+      }
+
+      renderSections = sections.map((section) => {
+        return section;
+      });
+    }
     return (
       <div>
-        <h2 className={styles.red}>React 222</h2>
-        <Section />
+        <h2 className={styles.red}>React</h2>
+        <button onClick={this.props.onAddSection}>Add section</button>
+        {renderSections}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    sections: state.count
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddSection: () => dispatch(actions.addSection())
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
