@@ -4,11 +4,14 @@
   "description": "React redux boilerplate",
   "main": "index.js",
   "scripts": {
-    "parse:data": "node ./scripts/parse_data/parser.js",
-    "server": "node ./src/server/server.js",
-    "start": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
+    "build": "webpack-dev-server --config webpack.config.dev.js --progress --colors",
+    "start:prod": "NODE_ENV=production node ./server/server.js",
+    "start:dev": "NODE_ENV=development node ./server/server.js",
+    "start": "npm run start:dev",
+    "serve": "NODE_ENV=development webpack-dev-server --host 0.0.0.0",
     "lint": "eslint . --ext .js --ext .jsx",
-    "test": "mocha --compilers js:babel-core/register '+(test|src)/**/*_specs.js'"
+    "test": "mocha --compilers js:babel-core/register '+(test|src)/**/*_specs.js'",
+    "parse:data": "node ./scripts/parse_data/parser.js"
   },
   "keywords": [],
   "author": "Igor Kolga",
@@ -46,6 +49,8 @@
     "axios": "^0.17.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2"
   }
 }

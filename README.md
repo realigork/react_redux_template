@@ -27,9 +27,3 @@ This template benefits from features such as:
 3. Start the server `npm run server`
 4. Go to localhost:3000
 
-
-## Todo
-
-- Fix ESLint script to lint the ES6 code
-- Add webpack hot middleware to enable live reload
-- Add environment configuration
